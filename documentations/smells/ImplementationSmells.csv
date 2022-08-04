@@ -1,0 +1,127 @@
+Project Name,Package Name,Type Name,Method Name,Implementation Smell,Cause of the Smell,Method start line no,Comments
+..,Modules.Analytics,AnalyticsView,AnalyticsView,Magic Number,The method contains a magic number: 400,14,This number comes into the statement System.exit(400); so we can not remove this.
+..,Modules.Analytics.controller,AnalyticsController,createAnalyticsInCSVFormat,Long Statement,"The length of the statement ""String[] data1={String.valueOf(ad.parking_slot_id)`ad.address`getLocationString(ad.longitude`ad.latitude)`String.valueOf(ad.revenue_generated)`String.valueOf(ad.total_hours)};"" is 175.",22,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.Analytics.controller,AnalyticsController,getTimeLength,Magic Number,The method contains a magic number: 60,106,60 is needed to convert minutes into the hours.
+..,Modules.Analytics.controller,AnalyticsController,getTimeLength,Magic Number,The method contains a magic number: 3600,106,3600 is needed to convert seconds into the hours.
+..,Modules.Booking,BookingView,displayBookings,Long Statement,"The length of the statement ""String bookingDetail=""Booking reference id "" + b.getReference_id() + "" on date ""+ b.getBooking_date()+ "" from ""+ b.getStart_time()+ "" to ""+ b.getEnd_time()+ "" for parking id ""+ b.getParking_id();"" is 195.",9,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.Booking,BookingUtilitiesTest,bookingPositiveTest,Long Statement,"The length of the statement ""Mockito.when(Mockito.mock(BookingController.class).sendEmailNotification(Constants.loggedInUser.email`""test"")).thenReturn(true);"" is 128.",33,This is a java syntax for testcases. 
+..,Modules.Booking,BookingUtilitiesTest,testEditBookingPositiveCase,Magic Number,The method contains a magic number: 2023,48,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testEditBookingPositiveCase,Magic Number,The method contains a magic number: 2,48,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testEditBookingPositiveCase,Magic Number,The method contains a magic number: 23,48,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testBookingModel,Magic Number,The method contains a magic number: 2,92,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testBookingModel,Magic Number,The method contains a magic number: 20220410,92,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testBookingModel,Magic Number,The method contains a magic number: 1120,92,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testBookingModel,Magic Number,The method contains a magic number: 1340,92,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testBookingModel,Magic Number,The method contains a magic number: 12,92,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testBookingModel,Magic Number,The method contains a magic number: 2,92,For testing purpose.
+..,Modules.Booking,BookingUtilitiesTest,testBookingModel,Magic Number,The method contains a magic number: 12,92,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 2022,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 2,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 24,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 10,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 30,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 11,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 30,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 210,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 111,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,bookingCreationAndRetreivingTest,Magic Number,The method contains a magic number: 56,26,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,editBookingDateTest,Magic Number,The method contains a magic number: 2022,51,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,editBookingDateTest,Magic Number,The method contains a magic number: 2,51,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,editBookingDateTest,Magic Number,The method contains a magic number: 27,51,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,editBookingTimeTest,Magic Number,The method contains a magic number: 14,56,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,editBookingTimeTest,Magic Number,The method contains a magic number: 20,56,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,editBookingTimeTest,Magic Number,The method contains a magic number: 15,56,For testing purpose.
+..,Modules.Booking,Booking_Integration_Test,editBookingTimeTest,Magic Number,The method contains a magic number: 20,56,For testing purpose.
+..,Modules.Booking.controller,BookingController,book_slot,Long Statement,"The length of the statement ""String query=""Insert into "" + tablename + "" (reference_id` client_user_id` owner_user_id` parking_id` date`start_time` end_time )""+ ""Values (?`?`?`?`?`?`?)"";"" is 157.",62,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.Booking.controller,BookingController,book_slot,Long Statement,"The length of the statement ""sendEmailNotification(Constants.loggedInUser.email`""Your Parking has been confirmed for date: "" + new_slot.getBooking_date() + "" from ""+ new_slot.getStart_time()+ "" to ""+ new_slot.getEnd_time());"" is 195.",62,This is required to send email with all necessary parameters. 
+..,Modules.Booking.controller,BookingController,book_slot,Magic Number,The method contains a magic number: 1000,62,for random function purpose (int)(Math.random()*1000).
+..,Modules.Booking.controller,BookingController,book_slot,Magic Number,The method contains a magic number: 2,62,"This is a column number, which is used in prepared statement to identify column using index."
+..,Modules.Booking.controller,BookingController,book_slot,Magic Number,The method contains a magic number: 3,62,"This is a column number, which is used in prepared statement to identify column using index."
+..,Modules.Booking.controller,BookingController,book_slot,Magic Number,The method contains a magic number: 4,62,"This is a column number, which is used in prepared statement to identify column using index."
+..,Modules.Booking.controller,BookingController,book_slot,Magic Number,The method contains a magic number: 5,62,"This is a column number, which is used in prepared statement to identify column using index."
+..,Modules.Booking.controller,BookingController,book_slot,Magic Number,The method contains a magic number: 6,62,"This is a column number, which is used in prepared statement to identify column using index."
+..,Modules.Booking.controller,BookingController,book_slot,Magic Number,The method contains a magic number: 7,62,"This is a column number, which is used in prepared statement to identify column using index."
+..,Modules.ParkingSlot.controller,AddParkingSlot,AddParkingSlots,Long Statement,"The length of the statement ""String addParkingSlotQuery=parkingSlotQueryBuilderDAO.AddParkingSlotQueryBuilder(distance_from_elevator`address`is_handicap`longitude`latitude`hourly_rate`is_on_street`owner_user_id);"" is 183.",18,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.ParkingSlot.controller,FindParkingSlots,findNearbyParkingSlots,Long Statement,"The length of the statement ""distanceBetweenTwoPoint=parkingSlotUtils.calculateDistanceInMeters(latitude`longitude`parkingSlot.latitude`parkingSlot.longitude);"" is 130.",21,It is required to calculate euclidean distance.
+..,Modules.ParkingSlot.controller,FindParkingSlots,findNearbyParkingSlots,Magic Number,The method contains a magic number: 10000,21,It is refactored.
+..,Modules.ParkingSlot.controller,FindParkingSlots,findAvailableParkingSlots,Long Parameter List,The method has 5 parameters. ,38,constructor.
+..,Modules.ParkingSlot.controller,FindParkingSlots,findAvailableParkingSlots,Long Statement,"The length of the statement ""String getBookedSlotsQuery=""SELECT * FROM booking WHERE date >= \"""" + date + ""\"" and (end_time <= \""""+ startTime+ ""\"" or start_time <= \""""+ endTime+ ""\"")"";"" is 155.",38,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.ParkingSlot.controller,FindParkingSlots,isParkingSlotNotAcceptable,Long Statement,"The length of the statement ""return parking_ids.contains(parkingSlot.parking_slot_id) || ((parkingSlot.start_time.after(Time.valueOf(startTime)) && parkingSlot.end_time.before(Time.valueOf(endTime))));"" is 172.",75,This joins of conditions are required.
+..,Modules.ParkingSlot.database,ParkingSlotQueryBuilder,AddParkingSlotQueryBuilder,Long Parameter List,The method has 8 parameters. ,19,constructor.
+..,Modules.ParkingSlot.database,ParkingSlotQueryBuilder,AddParkingSlotQueryBuilder,Long Statement,"The length of the statement ""return ""INSERT INTO ParkingSlot (distance_from_elevator` address` is_handicap` longitude` latitude` hourly_rate` is_on_street` owner_user_id) VALUES('"" + distance_from_elevator + ""'`'""+ address+ ""'`'""+ is_handicap+ ""'`'""+ longitude+ ""'`'""+ latitude+ ""'`'""+ hourly_rate+ ""'`'""+ is_on_street+ ""'`'""+ owner_user_id+ ""')"";"" is 318.",19,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.ParkingSlot.database,ParkingSlotQueryBuilderDAO,AddParkingSlotQueryBuilder,Long Parameter List,The method has 8 parameters. ,4,These parameters are required for the method we can not decrease it.
+..,Modules.ParkingSlot.model,ParkingSlot,ParkingSlot,Long Parameter List,The method has 11 parameters. ,18,constructor.
+..,Modules.ParkingSlot,ParkingSlotView,displayParkingSlotMenu,Missing default,The following switch statement is missing a default case: switch (loggedInUser.role) {,41,false positive
+..,Modules.ParkingSlot,ParkingSlotView,displayVendorMenu,Long Statement,"The length of the statement ""Constants.printAndSpeak(""Enter the following numbers to access the corresponding item:\n1: Add Parking Slot.\n2: View My Parking Slots.\n3: Exit ParkingPool.\nEnter your command: "");"" is 182.",64,Simple print statement.
+..,Modules.ParkingSlot,ParkingSlotView,displayVendorMenu,Magic Number,The method contains a magic number: 2,64,required to access array element using index value.
+..,Modules.ParkingSlot,ParkingSlotView,displayVendorMenu,Magic Number,The method contains a magic number: 3,64,required to access array element using index value.
+..,Modules.ParkingSlot,ParkingSlotView,displayVendorMenu,Missing default,The following switch statement is missing a default case: switch (input) {,64,false positive
+..,Modules.ParkingSlot,ParkingSlotView,displayCustomerMenu,Long Statement,"The length of the statement ""Constants.printAndSpeak(""Enter the following numbers to access the corresponding item:\n1: Book a Parking Slot.\n2. View My Bookings\n3: Exit ParkingPool.\nEnter your command: "");"" is 179.",95,Simple print statement.
+..,Modules.ParkingSlot,ParkingSlotView,displayCustomerMenu,Long Statement,"The length of the statement ""ArrayList<ParkingSlot> foundParkingSlots=findParkingSlots.findAvailableParkingSlots(longitude`latitude`date`startTime`endTime);"" is 127.",95,name of methods are large so the statement became large.
+..,Modules.ParkingSlot,ParkingSlotView,displayCustomerMenu,Long Statement,"The length of the statement ""Constants.printAndSpeak(""Enter the following numbers to access the corresponding item: \n1. Book a Parking Slot from above\n2. Filter according to rate\n3. Go back"");"" is 166.",95,Simple print statement.
+..,Modules.ParkingSlot,ParkingSlotView,displayCustomerMenu,Magic Number,The method contains a magic number: 2,95,required to access array element using index value.
+..,Modules.ParkingSlot,ParkingSlotView,displayCustomerMenu,Magic Number,The method contains a magic number: 2,95,required to access array element using index value.
+..,Modules.ParkingSlot,ParkingSlotView,displayCustomerMenu,Magic Number,The method contains a magic number: 3,95,required to access array element using index value.
+..,Modules.ParkingSlot,ParkingSlotView,displayCustomerMenu,Missing default,The following switch statement is missing a default case: switch (bookInput) {,95,false positive
+..,Modules.ParkingSlot,ParkingSlotView,displayAdminMenu,Long Statement,"The length of the statement ""Constants.printAndSpeak(""Enter the following number to access the corresponding item:\n1. Show Analysis of the data for ParkingPool\n2. Generate a Spreadsheet for the analytics\n3. Exit ParkingPool"");"" is 200.",146,Simple print statement.
+..,Modules.ParkingSlot,ParkingSlotView,displayAdminMenu,Magic Number,The method contains a magic number: 2,146,required to showcase user specific options.
+..,Modules.ParkingSlot,ParkingSlotView,displayAdminMenu,Magic Number,The method contains a magic number: 3,146,required to showcase user specific options.
+..,Modules.ParkingSlot,ParkingSlotView,displayAdminMenu,Magic Number,The method contains a magic number: 4,146,required to showcase user specific options.
+..,Modules.ParkingSlot,ParkingSlotView,displayMyParkingSlots,Magic Number,The method contains a magic number: 2,173,required to showcase user specific options.
+..,Modules.ParkingSlot,ParkingSlotView,displayMyParkingSlots,Missing default,The following switch statement is missing a default case: switch (selectedItem) {,173,false positive
+..,Modules.ParkingSlot,ParkingSlotView,addParkingSlotDetails,Long Statement,"The length of the statement ""ParkingSlot parkingSlot=new ParkingSlot(-1`distance_from_elevator`address`is_handicap`longitude`latitude`hourly_rate`is_on_street`owner_user_id`start_time`end_time);"" is 165.",206,Our constructor has many parameters so we must require this sentence to instantiate the class.
+..,Modules.ParkingSlot,ParkingSlotView,BookAParkingSlot,Magic Number,The method contains a magic number: 2,240,required to showcase user specific options.
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testAddParkingSlotQueryBuilder,Long Statement,"The length of the statement ""final String actualQuery=parkingSlotQueryBuilder.AddParkingSlotQueryBuilder(distance_from_elevator`address`is_handicap`longitude`latitude`hourly_rate`is_on_street`owner_user_id);"" is 178.",9,"This is just a SQL query, we can not divide it into multiple parts."
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testAddParkingSlotQueryBuilder,Long Statement,"The length of the statement ""final String expectedQuery=""INSERT INTO ParkingSlot (distance_from_elevator` address` is_handicap` longitude` latitude` hourly_rate` is_on_street` owner_user_id) VALUES('0'`'6225 University Ave` Halifax` NS B3H 4R2'`'1'`'44.6374007'`'-63.5933855'`'12.95'`'0'`'6')"";"" is 265.",9,"This is just a SQL query, we can not divide it into multiple parts."
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testAddParkingSlotQueryBuilder,Magic Number,The method contains a magic number: 44.6374007,9,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testAddParkingSlotQueryBuilder,Magic Number,The method contains a magic number: 63.5933855,9,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testAddParkingSlotQueryBuilder,Magic Number,The method contains a magic number: 12.95,9,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testAddParkingSlotQueryBuilder,Magic Number,The method contains a magic number: 6,9,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testDeleteParkingSlot,Magic Number,The method contains a magic number: 2,36,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotQueryBuilderTest,testDeleteParkingSlot,Magic Number,The method contains a magic number: 6,36,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Long Statement,"The length of the statement ""ParkingSlot myPS=new ParkingSlot(2`50`""6225 University Ave` Halifax` NS B3H 4R2""`1`44.6374007`-63.5933855`52`1`2`new Time(11)`new Time(23));"" is 140.",47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 2,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 50,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 44.6374007,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 63.5933855,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 52,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 2,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 11,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 23,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testParkingSlotConstructor,Magic Number,The method contains a magic number: 52,47,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindNearbyParkingSlot,Magic Number,The method contains a magic number: 63,91,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindNearbyParkingSlot,Magic Number,The method contains a magic number: 64,91,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 20220412,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 63,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 63,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 63.0,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 63.0,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 2,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 40,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 3,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotTest,testFindAvailableParkingSlots,Magic Number,The method contains a magic number: 49,102,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceInMetres,Magic Number,The method contains a magic number: 11119.507973459089,55,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceInMetres,Magic Number,The method contains a magic number: 63,55,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceInMetres,Magic Number,The method contains a magic number: 63,55,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceInMetres,Magic Number,The method contains a magic number: 63.10,55,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceInMetres,Magic Number,The method contains a magic number: 63,55,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceNegativeCase,Magic Number,The method contains a magic number: 1111,61,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceNegativeCase,Magic Number,The method contains a magic number: 63,61,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceNegativeCase,Magic Number,The method contains a magic number: 63,61,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceNegativeCase,Magic Number,The method contains a magic number: 63.10,61,For testing purpose.
+..,Modules.ParkingSlot,ParkingSlotUtilsTest,testCalculateDistanceNegativeCase,Magic Number,The method contains a magic number: 63,61,For testing purpose.
+..,Modules.ParkingSlot.Utils,ParkingSlotUtils,ResultSetToParkingSlot,Long Statement,"The length of the statement ""parkingSlots.add(new ParkingSlot(parkingSlotResultSet.getInt(""id"")`parkingSlotResultSet.getInt(""distance_from_elevator"")`parkingSlotResultSet.getString(""address"")`parkingSlotResultSet.getInt(""is_handicap"")`parkingSlotResultSet.getDouble(""longitude"")`parkingSlotResultSet.getDouble(""latitude"")`parkingSlotResultSet.getDouble(""hourly_rate"")`parkingSlotResultSet.getInt(""is_on_street"")`parkingSlotResultSet.getInt(""owner_user_id"")`parkingSlotResultSet.getTime(""start_time"")`parkingSlotResultSet.getTime(""end_time"")));"" is 514.",33,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.Review.controller,AddReviewsAndRatings,AddData,Long Statement,"The length of the statement ""String insertQuery=""INSERT INTO reviews_and_ratings (parking_id` user_id` reviews` ratings) VALUES("" + parkingID + "" ` '""+ userID+ ""' ` '""+ reviews+ ""' ` '""+ ratings+ ""');"";"" is 173.",28,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.Review.controller,AddReviewsAndRatings,displayData,Empty catch clause,The method has an empty catch block.,43,refactored it.
+..,Modules.Review.model,Review,Review,Long Parameter List,The method has 5 parameters. ,9,constructor.
+..,Modules.User.controller,Hash,getHashCode,Magic Number,The method contains a magic number: 16,7,This number is required to set method parameter.
+..,Modules.User.controller,Hash,getHashCode,Magic Number,The method contains a magic number: 32,7,This number is required to set method parameter.
+..,Modules.User.controller,LogIn,isCredentialCorrect,Long Statement,"The length of the statement ""String query=""select * from user where password=\"""" + password.trim() + ""\"" and email=\""""+ email.trim()+ ""\"" and role=\""""+ role+ ""\"";"";"" is 135.",14,This is just a SQL query thus we can not devide it into multiple sentences.
+..,Modules.User.controller,SignUp,register,Long Parameter List,The method has 6 parameters. ,29,This parameters stands for signup details so we need it.
+..,Modules.User.controller,SignUp,register,Long Statement,"The length of the statement ""String query=""INSERT INTO `user` (`email`` `role`` `name`` `password`` `address`) VALUES ('"" + email.trim() + ""'` '""+ role.trim()+ ""'` '""+ name.trim()+ ""'` '""+ password.trim()+ ""'` '""+ address.trim()+ ""');"";"" is 207.",29,This is just a SQL query thus we can not divide it into multiple sentences.
+..,Modules.User.model,User,User,Long Parameter List,The method has 6 parameters. ,11,It is a constructor so this is required.
+..,Modules.User.model,User,User,Long Parameter List,The method has 5 parameters. ,10,These parameters stand for registration details so we need this. 
+..,Modules.User,UserView,logIn,Long Statement,"The length of the statement ""Constants.printAndSpeak(""Please Enter valid input : 'c' for customer role` Enter 'v' for vendor role ` Enter 'a' for admin role : "");"" is 133.",63,This ia a print statement so we require it. We can not write it separately. 
+..,(default package),ParkingPool,main,Magic Number,The method contains a magic number: 2,23,This is for option selection purpose. (e.g. 1. signup 2. Login)
+..,Utils,GoogleMap,parseUrl,Magic Number,The method contains a magic number: 5,7,For splitting purpose we need it.
+..,Utils,GoogleMap,parseUrl,Magic Number,The method contains a magic number: 6,7,For splitting purpose we need it.

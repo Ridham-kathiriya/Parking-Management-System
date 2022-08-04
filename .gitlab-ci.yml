@@ -1,0 +1,84 @@
+image: maven:latest
+
+before_script:
+  - cd ./com.parkingpool.backend/
+
+stages:
+  - build
+  - test
+  - quality-check
+  - deploy
+
+mvn-build:
+  stage: build
+  tags:
+    - dalfcs_docker_kvm
+  script:
+    - mvn clean install
+  artifacts:
+    paths:
+      - "./com.parkingpool.backend/target/"
+
+mvn-test:
+  stage: test
+  tags:
+    - dalfcs_docker_kvm
+  script:
+    - mvn clean test
+  artifacts:
+    paths:
+      - "./com.parkingpool.backend/target/surefire-reports/TEST-*.xml"
+    reports:
+      junit:
+        - "./com.parkingpool.backend/target/surefire-reports/TEST-*.xml"
+
+code-quality:
+  stage: quality-check
+  image: maven:3-jdk-11
+  variables:
+    DELETE_PREVIOUS_REPORT: 'curl -X POST -H "Authorization: Token $QSCORED_API_KEY" + -H "username: vanshikagohel1@gmail.com" -H "Content-Type: application/x-www-form-urlencoded" --url "https://qscored.com/api/delete/" -d "project_name=parking_pool_project&version=1.0.0"'
+    UPLOAD_QUALITY_REPORT: 'curl -X PUT -H "Authorization: Token $QSCORED_API_KEY" + -H "username: vanshikagohel1@gmail.com" -H "Content-Type:   application/xml" --url "https://qscored.com/api/upload/file.xml?is_open_access=off&version=1.0.0&project_name=parking_pool_project" -F "file=@DesigniteAnalysis.xml"'
+  before_script:
+    - apt-get update
+    - apt-get install -y wget curl
+    - wget -O DesigniteJava.jar https://www.dropbox.com/s/mwizkj8uhplz4x3/DesigniteJava.jar?dl=1
+
+  script:
+    - java -jar DesigniteJava.jar -i ./ -o quality-check/ -f XML
+    - ls -l
+    - ls quality-check
+    - cd quality-check
+    - echo "DELETING PREVIOUS REPORT"
+    - eval $DELETE_PREVIOUS_REPORT
+    - echo "UPLOADING NEW QUALITY REPORT"
+    - echo "$UPLOAD_QUALITY_REPORT"
+    - eval "$UPLOAD_QUALITY_REPORT"
+
+  only:
+    - main
+    - test
+    - dev
+
+
+deploy:
+  stage: deploy
+  tags:
+    - dalfcs_docker_kvm
+  artifacts:
+    paths:
+      - "./com.parkingpool.backend/target/"
+
+  script:
+    - echo "dbURL=$DATABASE_PROD_URL" > config.properties
+    - echo "dbUserName=$DATABASE_PROD_USERNAME" >> config.properties
+    - echo "dbPassword=$DATABASE_PROD_PASSWORD" >> config.properties
+    - echo "dbDriver=$DATABASE_DRIVER" >> config.properties
+    - echo "Deploying the release pipeline"
+    - chmod og-rwx ${DEPLOY_SSH_KEY}
+    - tar -czf ${CI_COMMIT_SHORT_SHA}.tar.gz target
+    - scp -r -o StrictHostKeyChecking=no -i "${DEPLOY_SSH_KEY}" ${CI_COMMIT_SHORT_SHA}.tar.gz "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}/${CI_PROJECT_NAME}-${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHORT_SHA}.tar.gz"
+
+  only:
+    - dev
+    - test
+    - main
